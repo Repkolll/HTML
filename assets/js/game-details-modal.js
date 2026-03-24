@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const catalog = document.querySelector('.games-catalog');
     if (!catalog) return;
 
-    const API_GAME_DETAILS_URL = 'https://localhost:44389/api/gamesapi/';
+    const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
+    const API_GAME_DETAILS_URL = API_BASE + '/api/gamesapi/';
     const detailsCache = new Map();
     let modal = null;
     let modalContent = null;

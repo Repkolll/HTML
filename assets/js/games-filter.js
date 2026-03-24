@@ -206,11 +206,12 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    const API_URL = 'https://localhost:44389/api/gamesapi';
+    const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
+    const API_URL = API_BASE + '/api/gamesapi';
 
     setupEvents();
     applyFilters();
 });
 
-//https://localhost:44389/api/gamesapi
-//http://localhost:8000/games.html
+// Example:
+// localStorage.setItem('API_BASE_URL', 'https://your-host')

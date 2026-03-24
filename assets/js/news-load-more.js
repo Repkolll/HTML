@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('news-container');
     const loadMoreBtn = document.getElementById('load-more-news');
-    const API_NEWS_URL = 'https://localhost:44389/api/newsapi';
+    const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
+    const API_NEWS_URL = API_BASE + '/api/newsapi';
 
     if (!container || !loadMoreBtn) {
         return;

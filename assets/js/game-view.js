@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const API_BASE = 'https://localhost:44389/api/gamesapi/';
+    const API_ROOT = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
+    const API_BASE = API_ROOT + '/api/gamesapi/';
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');

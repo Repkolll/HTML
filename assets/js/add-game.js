@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const submitBtn = document.getElementById('submitGameBtn');
     const statusEl = document.getElementById('submitStatus');
     if (!form) return;
-    const API_CREATE_GAME_URL = 'https://localhost:44389/api/gamesapi';
+    const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
+    const API_CREATE_GAME_URL = API_BASE + '/api/gamesapi';
     function setError(id, message) {
         const el = document.getElementById('error-' + id);
         if (el) el.textContent = message || '';

@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('announces-container');
     const platformSelect = document.getElementById('announce-platform');
     const genreSelect = document.getElementById('announce-genre');
-    const API_ANNOUNCES_URL = 'https://localhost:44389/api/announcesapi';
+    const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
+    const API_ANNOUNCES_URL = API_BASE + '/api/announcesapi';
 
     if (!container || !platformSelect || !genreSelect) {
         return;

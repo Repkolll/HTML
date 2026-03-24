@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Каталог игр — GameNews</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/cards.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="assets/img/Logo.png" alt="GameNews logo" style="max-height:64px; width:auto; display:block;"></a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная страница</a></li>
+                    <li><a href="games.html" aria-current="page">Каталог игр</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="bookmarks.html">Закладки</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container" style="display: flex; gap: 24px;">
+            <aside style="min-width: 260px;">
+                <form id="filters">
+                    <legend>Фильтры</legend>
+                    <div style="margin-bottom: 12px;">
+                        <label for="search-query">Поиск по названию</label>
+                        <input type="text" id="search-query" name="search-query" placeholder="Например, Cyberpunk">
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label for="genre">Жанр</label><p></p>
+                        <select id="genre" name="genre">
+                            <option value="">Все жанры</option>
+                            <option value="RPG">RPG</option>
+                            <option value="Shooter">Шутер</option>
+                            <option value="MOBA">MOBA</option>
+                            <option value="Adventure">Приключения</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <label for="price-min">По цене</label><p></p>
+                        <input type="number" id="price-min" name="price-min" placeholder="От...">
+                        <input type="number" id="price-max" name="price-max" placeholder="До...">
+                    </div>
+                    <div>
+                        <label for="rating-min">Минимальный рейтинг</label><p></p>
+                        <input type="number" id="rating-min" name="rating-min" placeholder="От..." min="0" max="5" step="0.1">
+                        <input type="number" id="rating-max" name="rating-max" placeholder="До..." min="0" max="5" step="0.1">
+                    </div>
+                </form>
+            </aside>
+                <section style="flex:1;">
+                    <p style="margin: 0 0 12px 0;">
+                        <a href="add-game.html" class="btn" style="font-weight:bold;">Добавить игру</a>
+                    </p>
+                    <div class="games-catalog" style="display: flex; gap: 32px; flex-wrap: wrap;">
+                        <!-- Карточки -->
+                    </div>
+                </section>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <nav aria-label="Служебные страницы">
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+            
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script src="assets/js/games-filter.js"></script>
+    <script src="assets/js/game-details-modal.js"></script>
+    <script src="assets/js/bookmarks.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

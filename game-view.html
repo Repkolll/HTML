@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Страница игры — GameNews</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/games.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="assets/img/Logo.png" alt="GameNews logo" style="max-height:64px; width:auto; display:block;"></a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная страница</a></li>
+                    <li><a href="games.html">Каталог игр</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="bookmarks.html">Закладки</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumbs" aria-label="Навигация">
+                <a href="index.html">Главная</a> / <a href="games.html">Игры</a> / <span id="crumb-title">Загрузка...</span>
+            </div>
+
+            <article class="game-detail">
+                <div class="game-header">
+                    <h1 class="game-title" id="game-title">Загрузка...</h1>
+
+                    <img id="game-cover" src="assets/img/placeholder.png" alt="Обложка игры" class="game-cover">
+
+                    <div class="game-meta">
+                        <div class="rating">Рейтинг: <span id="game-rating">-</span></div>
+                        <div class="reviews">Платформа: <span id="game-platform">-</span></div>
+                    </div>
+
+                    <div class="game-description">
+                        <p id="game-description">Загрузка описания...</p>
+                    </div>
+                </div>
+
+                <div class="game-requirements">
+                    <div>
+                        <h3>Информация</h3>
+                        <ul>
+                            <li>Жанр: <span id="game-genre">-</span></li>
+                            <li>Цена: <span id="game-price">-</span></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Системные требования</h3>
+                        <p id="game-requirements">Загрузка...</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav aria-label="Служебные страницы">
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="assets/js/game-view.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,148 @@
+/* Game detail & reviews styles */
+.game-detail {
+    background: #2A2A2A;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 32px;
+}
+
+.game-detail .game-header {
+    position: relative;
+    padding: 24px;
+}
+
+.game-detail .game-title {
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 0 0 16px;
+}
+
+.game-detail .game-cover {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+.game-detail .game-screenshots {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 0;
+    margin-bottom: 24px;
+}
+
+.game-detail .game-screenshots img {
+    height: 120px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Thumbnails behaviour for gallery */
+.game-detail .game-screenshots img {
+    cursor: pointer;
+    transition: none; /* no effects as requested */
+    opacity: 1;
+}
+.game-detail .game-screenshots img.active {
+    outline: 3px solid #00FF00; /* visible highlight */
+}
+
+.game-detail .game-description {
+    color: #ccc;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.game-requirements {
+    background: #1F1F1F;
+    padding: 24px;
+    border-top: 1px solid #333;
+}
+
+.game-requirements h3 {
+    color: #fff;
+    margin: 0 0 16px;
+    font-size: 1.2rem;
+}
+
+.game-requirements ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.game-requirements li {
+    color: #ccc;
+    font-size: 0.9rem;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+}
+
+.game-requirements li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #00FF00;
+}
+
+.game-meta {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.game-meta .rating, 
+.game-meta .reviews {
+    background: #1F1F1F;
+    padding: 12px 16px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.game-meta .rating span {
+    color: #00FF00;
+    font-weight: 600;
+}
+
+.game-reviews {
+    margin-top: 32px;
+}
+
+.game-reviews h2 {
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.review-card {
+    background: #2A2A2A;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+}
+
+.review-author {
+    color: #00FF00;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.review-content {
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.review-content p {
+    margin-bottom: 12px;
+}
+
+.review-content p:last-child {
+    margin-bottom: 0;
+}

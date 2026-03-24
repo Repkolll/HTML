@@ -1,0 +1,30 @@
+/* News-specific styles */
+#news-container {
+    display: grid;
+    gap: 18px;
+}
+
+#news-container .card {
+    padding: 12px;
+}
+
+#news-container .card a {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    text-decoration: none;
+}
+
+#news-container .card img {
+    width: 160px;
+    height: 96px;
+    object-fit: cover;
+    flex: 0 0 160px;
+    border-radius: 6px;
+}
+
+#news-container .card .card-content {
+    padding: 0;
+}
+
+#news-container .card .card-content p { color: #cfcfcf; }

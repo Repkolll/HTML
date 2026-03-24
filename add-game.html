@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Добавить игру — GameNews</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/cards.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="assets/img/Logo.png" alt="GameNews logo" style="max-height:64px; width:auto; display:block;"></a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная страница</a></li>
+                    <li><a href="games.html">Каталог игр</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="bookmarks.html">Закладки</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container" style="max-width: 900px;">
+            <h1>Добавить игру</h1>
+            <p style="opacity:.85;">Игра будет добавлена в базу данных и появится в каталоге.</p>
+            <form id="addGameForm" enctype="multipart/form-data" style="margin-top: 16px;">
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
+                    <div>
+                        <label for="game-title">Название</label>
+                        <input id="game-title" name="title" type="text" placeholder="Например, Elden Ring" required>
+                        <div class="error" id="error-title" style="color:#ff6b6b; min-height: 1.2em;"></div>
+                    </div>
+                    <div>
+                        <label for="game-genre">Жанр</label>
+                        <select id="game-genre" name="genre" required>
+                            <option value="">Выберите жанр</option>
+                            <option value="RPG">RPG</option>
+                            <option value="Shooter">Шутер</option>
+                            <option value="MOBA">MOBA</option>
+                            <option value="Adventure">Приключения</option>
+                            <option value="Strategy">Стратегия</option>
+                            <option value="Action">Action</option>
+                            <option value="Simulator">Симулятор</option>
+                        </select>
+                        <div class="error" id="error-genre" style="color:#ff6b6b; min-height: 1.2em;"></div>
+                    </div>
+                    <div>
+                        <label for="game-platform">Платформа(ы)</label>
+                        <input id="game-platform" name="platform" type="text" placeholder="Например, PC, PS5, Xbox" required>
+                        <div class="error" id="error-platform" style="color:#ff6b6b; min-height: 1.2em;"></div>
+                    </div>
+                    <div>
+                        <label for="game-price">Цена (руб.)</label>
+                        <input id="game-price" name="price" type="number" min="0" step="1" placeholder="0 для бесплатной" required>
+                        <div class="error" id="error-price" style="color:#ff6b6b; min-height: 1.2em;"></div>
+                    </div>
+                    <div>
+                        <label for="game-rating">Рейтинг (0–5)</label>
+                        <input id="game-rating" name="rating" type="number" min="0" max="5" step="0.1" placeholder="Например, 4.7" required>
+                        <div class="error" id="error-rating" style="color:#ff6b6b; min-height: 1.2em;"></div>
+                    </div>
+                    <div>
+                        <label for="game-image">Картинка (png/jpg, до 2 МБ)</label>
+                        <input id="game-image" name="image" type="file" accept="image/png,image/jpeg" required>
+                        <div class="error" id="error-image" style="color:#ff6b6b; min-height: 1.2em;"></div>
+                    </div>
+                </div>
+                <div style="margin-top:16px;">
+                    <label for="game-description">Описание</label>
+                    <textarea id="game-description" name="description" rows="5" placeholder="Краткое описание игры" required></textarea>
+                    <div class="error" id="error-description" style="color:#ff6b6b; min-height: 1.2em;"></div>
+                </div>
+                <div style="margin-top:16px;">
+                    <label for="game-requirements">Системные требования</label>
+                    <textarea id="game-requirements" name="requirements" rows="4" placeholder="ОС, процессор, ОЗУ, видеокарта, место на диске..." required></textarea>
+                    <div class="error" id="error-requirements" style="color:#ff6b6b; min-height: 1.2em;"></div>
+                </div>
+                <div style="margin-top:18px; display:flex; gap:12px; align-items:center;">
+                    <button class="btn" type="submit" id="submitGameBtn" style="font-weight:bold;">Сохранить</button>
+                    <a class="btn" href="games.html" style="background:#444;">Отмена</a>
+                    <span id="submitStatus" style="opacity:.85;"></span>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <nav aria-label="Служебные страницы">
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script src="assets/js/add-game.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

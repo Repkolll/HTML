@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Главная — GameNews</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/cards.css">
+    <link rel="stylesheet" href="assets/css/news.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="assets/img/Logo.png" alt="GameNews logo" style="max-height:64px; width:auto; display:block;"></a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" aria-current="page">Главная страница</a></li>
+                    <li><a href="games.html">Каталог игр</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="bookmarks.html">Закладки</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="breadcrumbs" aria-label="Навигация">
+                <a href="index.html">Главная страница</a>
+            </div>
+            <h1>Игровой портал</h1>
+            <!-- Блок с новостями -->
+            <div aria-labelledby="news-title">
+                <h2 id="news-title">Игровые новости</h2>
+                <p style="margin-top:1em;">
+                    <a href="add-news.html" class="btn" style="font-weight:bold;"> Добавить новость</a>
+                </p>
+                <div id="news-list" aria-live="polite">
+                    <div id="news-container">
+                        <div class="card">
+                            <a href="news-1.html">
+                                <img src="assets/img/Rectangle 8.png" alt="Новость 1 изображение">
+                                <div class="card-content">
+                                    <p>сегодня в 13:00</p>
+                                    <h3>SKIDROW наконец-то сделали это...</h3>
+                                    <p>Хакеры удалили Denuvo из Tourist Bus Simulator и обещают...</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="news-2.html">
+                                <img src="assets/img/Rectangle 10.png" alt="Новость 2 изображение">
+                                <div class="card-content">
+                                    <p>сегодня в 11:40</p>
+                                    <h3>Время апгрейда: Silent Hill f не работает на RTX 5090</h3>
+                                    <p>Подробности апдейта и совместимости GPU...</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card">
+                            <a href="news-3.html">
+                                <img src="assets/img/Rectangle 12.png" alt="Новость 3 изображение">
+                                <div class="card-content">
+                                    <p>вчера в 10:00</p>
+                                    <h3>Cyberpunk 2077 получила награду</h3>
+                                    <p>«Лучшая научно-фантастическая игра» на Galaxy Sci-Fi...</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <p style="margin-top:1em;">
+                        <button id="load-more-news" class="btn" type="button">
+                            Показать ещё новости
+                        </button>
+                    </p>
+                </div>
+
+            </div>
+            <!-- Блок с рецензиями -->
+            <div aria-labelledby="reviews-title">
+                <h2 id="reviews-title">Рецензии на игры</h2>
+                <ul style="display:flex; flex-direction:row; justify-content:flex-start; gap:32px; list-style:none; padding-left:0;">
+                    <li>
+                        <a href="#"><img src="assets/img/Witcher.png" alt="Обложка The Witcher 3" style="width:140px; height:auto;"></a>
+                        <p>Оценка: 4.8</p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/img/BG3.png" alt="Обложка Baldur's Gate 3" style="width:140px; height:auto;"></a>
+                        <p>Оценка: 4.9</p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="assets/img/RDR2.png" alt="Обложка Red Dead Redemption 2" style="width:140px; height:auto;"></a>
+                        <p>Оценка: 4.7</p>
+                    </li>
+                </ul>
+            </div>
+            <!-- Блок с анонсами -->
+            <div aria-labelledby="announces-title">
+                <h2 id="announces-title">Анонсы игр</h2>
+                <div style="display:flex; justify-content:flex-start;">
+                    <form id="announces-filters" style="margin-bottom:1rem; display:flex; align-items:center; gap:12px;">
+                        <label for="announce-platform" style="white-space:nowrap;">Платформа:</label>
+                        <select id="announce-platform" name="platform">
+                            <option value="">Все</option>
+                            <option value="PC">PC</option>
+                            <option value="PS5">PS5</option>
+                            <option value="Xbox">Xbox</option>
+                            <option value="Switch">Switch</option>
+                        </select>
+                        <label for="announce-genre" style="white-space:nowrap;">Жанр:</label>
+                        <select id="announce-genre" name="genre">
+                            <option value="">Все</option>
+                            <option value="RPG">RPG</option>
+                            <option value="Shooter">Шутер</option>
+                            <option value="Strategy">Стратегия</option>
+                            <option value="Adventure">Приключения</option>
+                        </select>
+                    </form>
+                </div>
+                <div id="announces-list" aria-live="polite">
+                    <div id="announces-container">
+                        <div class="card" data-platform="PC" data-genre="RPG">
+                            <a href="announce-1.html">
+                                <div class="card-content">
+                                    <p>сегодня в 10:00</p>
+                                    <h3>Анонс новой игры от CD Projekt RED</h3>
+                                    <p>Студия анонсировала новый проект в жанре фэнтези...</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card" data-platform="PS5" data-genre="Adventure">
+                            <a href="announce-2.html">
+                                <div class="card-content">
+                                    <p>вчера в 10:00</p>
+                                    <h3>Ubisoft представила трейлер Assassin's Creed</h3>
+                                    <p>Новая часть серии выйдет в следующем году...</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card" data-platform="Xbox" data-genre="Strategy">
+                            <a href="announce-3.html">
+                                <div class="card-content">
+                                    <p>позавчера в 10:00</p>
+                                    <h3>Bethesda анонсировала Starfield DLC</h3>
+                                    <p>Первое крупное дополнение к космической RPG...</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <nav aria-label="Служебные страницы">
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script src="assets/js/news-load-more.js"></script>
+    <script src="assets/js/announces-filter.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

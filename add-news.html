@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Добавить новость — GameNews</title>
+    <!-- страница без JavaScript по требованиям задания -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Page-local form hint/error styling to avoid touching global main.css */
+        .form-row { margin-bottom: 14px; }
+        .hint { font-size: 0.9rem; color: #bfbfbf; margin-top: 6px; min-height: 18px; }
+        .error { font-size: 0.9rem; color: #ff6b6b; margin-top: 6px; min-height: 18px; }
+        .two-col { display:flex; gap:16px; }
+        .two-col > div { flex:1; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><a href="index.html"><img src="assets/img/Logo.png" alt="GameNews logo" style="max-height:64px; width:auto; display:block;"></a></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Главная страница</a></li>
+                    <li><a href="games.html">Каталог игр</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="bookmarks.html">Закладки</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+
+            <h1>Добавление новой новости</h1>
+            <p>На этой странице вы можете подготовить и отправить новую новость на сайт.</p>
+
+            <section aria-labelledby="form-instructions">
+                <h2 id="form-instructions">Инструкции</h2>
+                <p>Заполните поля формы. Поля, отмеченные звездочкой (<strong>*</strong>), обязательны для заполнения.</p>
+                <ul>
+                    <li>Заголовок — краткий и информативный.</li>
+                    <li>Краткое описание — анонс новости (для списка новостей).</li>
+                    <li>Основной текст — полный текст новости.</li>
+                    <li>Изображение можно загрузить через поле «Файл» (формат: JPG/PNG).</li>
+                </ul>
+            </section>
+
+            <article aria-labelledby="add-news-form">
+                <h2 id="add-news-form">Форма добавления</h2>
+                <form id="addNewsForm" action="#" method="post" enctype="multipart/form-data" novalidate>
+
+                    <div>
+                        <h3>Основная информация</h3>
+                        <div class="form-row">
+                            <label for="news-title">Заголовок <strong>*</strong></label>
+                            <input type="text" id="news-title" name="title" required placeholder="Заголовок новости">
+                            <div class="hint" id="hint-title">Не менее 5 символов.</div>
+                            <div class="error" id="error-title" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="news-author">Автор (имя и фамилия) <strong>*</strong></label>
+                            <input type="text" id="news-author" name="author" required placeholder="Иван Иванов">
+                            <div class="hint" id="hint-author">Только буквы и пробелы, укажите имя и фамилию.</div>
+                            <div class="error" id="error-author" aria-live="polite"></div>
+                        </div>
+
+                        <div class="two-col">
+                            <div>
+                                <label for="news-date">Дата публикации</label>
+                                <input type="date" id="news-date" name="date">
+                                <div class="hint" id="hint-date">Не указывайте дату в будущем.</div>
+                                <div class="error" id="error-date" aria-live="polite"></div>
+                            </div>
+
+                            <div>
+                                <label for="news-time">Время чтения (минуты) <strong>*</strong></label>
+                                <input type="number" id="news-time" name="readtime" min="1" max="300" required placeholder="10">
+                                <div class="hint" id="hint-time">Целое число от 1 до 300.</div>
+                                <div class="error" id="error-time" aria-live="polite"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="news-category">Категория <strong>*</strong></label>
+                            <select id="news-category" name="category">
+                                <option value="">-- выберите --</option>
+                                <option value="general">Общее</option>
+                                <option value="reviews">Рецензии</option>
+                                <option value="announces">Анонсы</option>
+                                <option value="esports">Киберспорт</option>
+                            </select>
+                            <div class="hint" id="hint-category">Выберите категорию.</div>
+                            <div class="error" id="error-category" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="news-image">Изображение (JPG/PNG, макс. 2MB)</label>
+                            <input type="file" id="news-image" name="image" accept="image/png, image/jpeg">
+                            <div class="hint" id="hint-image">Допустимые форматы: .jpg, .jpeg, .png. Размер не более 2 МБ.</div>
+                            <div class="error" id="error-image" aria-live="polite"></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Содержимое</h3>
+                        <div class="form-row">
+                            <label for="news-summary">Краткое описание <strong>*</strong></label>
+                            <textarea id="news-summary" name="summary" rows="3" required placeholder="Краткое описание для списка новостей"></textarea>
+                            <div class="hint" id="hint-summary">Минимум 20 символов.</div>
+                            <div class="error" id="error-summary" aria-live="polite"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="news-content">Полный текст новости <strong>*</strong></label>
+                            <textarea id="news-content" name="content" rows="10" required placeholder="Полный текст новости"></textarea>
+                            <div class="hint" id="hint-content">Минимум 50 символов; можно использовать ссылки и форматирование.</div>
+                            <div class="error" id="error-content" aria-live="polite"></div>
+                        </div>
+                    </div>
+
+
+                        <p>
+                            <button type="submit">Отправить новость</button>
+                            <button type="reset">Очистить форму</button>
+                        </p>
+                </form>
+            </article>
+
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav aria-label="Служебные страницы">
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+    <script src="assets/js/form-validate.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

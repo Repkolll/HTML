@@ -1,0 +1,34 @@
+/* Cards (shared across multiple pages) */
+.card { 
+    background: #2A2A2A; 
+    border: 1px solid #333; 
+    border-radius: 8px; 
+    overflow: hidden; 
+    transition: transform .3s ease; 
+}
+.card:hover { 
+    transform: translateY(-5px); 
+}
+.card img { 
+    display: block; 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+.card-content { 
+    padding: 16px; 
+}
+.card-content h3 { 
+    color: #fff;
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+}
+.card-content p { 
+    color: #ccc;
+    margin: 0;
+    font-size: 0.9rem;
+}
+.price { 
+    color: #00FF00; 
+    font-weight: 600; 
+}

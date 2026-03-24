@@ -1,0 +1,174 @@
+/* Base Reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { 
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+    line-height: 1.6; 
+    color: #fff; 
+    background: #1A1A1A; 
+}
+
+/* Layout */
+header { 
+    background: #2A2A2A; 
+    color: #fff;
+    border-bottom: 1px solid #333;
+}
+.container { 
+    width: min(1200px, 92%); 
+    margin: 0 auto; 
+}
+header .container, footer .container { 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 14px 0; 
+}
+
+/* Nav */
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; }
+nav a { color: #fff; text-decoration: none; padding: 8px 10px; border-radius: 6px; }
+nav a:hover, nav a[aria-current="page"] { background: #1f1f1f; }
+
+/* Main */
+main { padding: 24px 0 40px; }
+h1 { font-size: 2rem; margin: 0 0 12px; }
+h2 { font-size: 1.4rem; margin: 24px 0 8px; }
+p { margin: 0 0 12px; }
+
+/* Cards & Grid */
+.grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 24px; 
+}
+/* card and page-specific styles moved to assets/css/unique.css */
+
+/* Table */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    background: #2A2A2A;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+}
+th, td { 
+    padding: 12px 16px; 
+    border: 1px solid #333; 
+    text-align: left;
+    color: #fff;
+}
+th { 
+    background: #1F1F1F;
+    font-weight: 600;
+}
+
+/* Forms */
+form { 
+    display: grid; 
+    gap: 16px; 
+    max-width: 680px; 
+    margin: 24px auto;
+    padding: 24px;
+    background: #2A2A2A;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+label { 
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 4px;
+}
+input, select, textarea { 
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #333; 
+    border-radius: 6px; 
+    background: #1A1A1A;
+    color: #fff;
+    font-size: 1rem;
+}
+input:focus, select:focus, textarea:focus {
+    border-color: #00FF00;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 255, 0, 0.1);
+}
+button, .btn { 
+    display: inline-block; 
+    padding: 12px 24px; 
+    background: #00FF00; 
+    color: #000; 
+    border: none; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+button:hover, .btn:hover { 
+    background: #00CC00;
+    transform: translateY(-2px);
+}
+
+/* Game Details */
+/* game-detail, reviews and other page-specific styles moved to assets/css/unique.css */
+
+/* Footer */
+footer { background: #111; color: #aaa; }
+footer a { color: #ddd; text-decoration: none; }
+footer .container { padding: 18px 0; }
+
+/* Utilities */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.breadcrumbs { 
+    font-size: .9rem; 
+    color: #999; 
+    margin-bottom: 12px; 
+}
+.breadcrumbs a { 
+    color: #fff; 
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.breadcrumbs a:hover {
+    color: #00FF00;
+}
+.hero { 
+    background: linear-gradient(180deg, #2A2A2A, #1F1F1F); 
+    color: #fff; 
+    border-radius: 12px; 
+    padding: 32px;
+    border: 1px solid #333;
+}
+.hero p { 
+    color: #ccc;
+    margin-bottom: 24px;
+}
+.hero .btn {
+    display: inline-block;
+    margin-top: 8px;
+}
+
+/* Homepage news list*/
+/* #news-container styles moved to assets/css/unique.css */
+
+/*
+@media (max-width: 640px) {
+    #news-container .news-card a {
+        display: block;
+    }
+    #news-container .news-card img {
+        width: 100%;
+        height: 200px;
+        flex: auto;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 640px) {
+	headertitle { font-size: 1.6rem; }
+	nav ul { gap: 8px; flex-wrap: wrap; }
+}
+*/ 

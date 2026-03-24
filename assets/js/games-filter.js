@@ -58,13 +58,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!ok) return;
 
         try {
+            console.info('[games-filter] DELETE request:', API_URL + '/' + encodeURIComponent(String(id)));
             const res = await fetch(API_URL + '/' + encodeURIComponent(String(id)), {
                 method: 'DELETE'
             });
             if (!res.ok) {
                 const text = await res.text();
+                console.error('[games-filter] DELETE failed:', res.status, text);
                 throw new Error('HTTP ' + res.status + ' ' + text);
             }
+            console.info('[games-filter] DELETE success for id:', id);
 
             // перезагрузить каталог (он читает из БД)
             applyFilters();
@@ -170,15 +173,17 @@ document.addEventListener('DOMContentLoaded', function () {
             signal: activeAbortController.signal
         })
             .then(res => {
+                console.info('[games-filter] GET request:', url, 'status:', res.status);
                 if (!res.ok) throw new Error('Bad response: ' + res.status);
                 return res.json();
             })
             .then(data => {
+                console.info('[games-filter] GET items:', Array.isArray(data) ? data.length : 0);
                 renderGames(data || []);
             })
             .catch(err => {
                 if (err && err.name === 'AbortError') return;
-                console.error('fetch error', err);
+                console.error('[games-filter] GET failed:', url, err);
             });
     }
 
@@ -208,6 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
     const API_URL = API_BASE + '/api/gamesapi';
+    console.info('[games-filter] API URL:', API_URL);
 
     setupEvents();
     applyFilters();

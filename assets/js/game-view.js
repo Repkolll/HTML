@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const API_ROOT = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
     const API_BASE = API_ROOT + '/api/gamesapi/';
+    console.info('[game-view] API URL:', API_BASE);
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
@@ -28,10 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
-    fetch(API_BASE + numericId, {
+    const url = API_BASE + numericId;
+    fetch(url, {
         headers: { 'Accept': 'application/json' }
     })
         .then(function (res) {
+            console.info('[game-view] GET request:', url, 'status:', res.status);
             if (!res.ok) throw new Error('HTTP ' + res.status);
             return res.json();
         })
@@ -52,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.title = (game.title || 'Игра') + ' — Страница игры';
         })
         .catch(function (err) {
-            console.error(err);
+            console.error('[game-view] GET failed:', url, err);
             showError('Не удалось загрузить данные игры с сервера.');
         });
 });

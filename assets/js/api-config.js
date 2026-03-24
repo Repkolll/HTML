@@ -21,6 +21,13 @@
     }
 
     var base = normalize(fromAppConfig) || normalize(fromGlobal) || normalize(fromStorage) || 'https://localhost:44389';
+    try {
+        console.info('[api-config] resolved API base URL:', base, {
+            fromAppConfig: normalize(fromAppConfig),
+            fromGlobal: normalize(fromGlobal),
+            fromStorage: normalize(fromStorage)
+        });
+    } catch (e) { /* no-op */ }
     window.getApiBaseUrl = function () {
         return base;
     };

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const genreSelect = document.getElementById('announce-genre');
     const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
     const API_ANNOUNCES_URL = API_BASE + '/api/announcesapi';
+    console.info('[announces-filter] API URL:', API_ANNOUNCES_URL);
 
     if (!container || !platformSelect || !genreSelect) {
         return;
@@ -57,15 +58,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Accept': 'application/json'
                 }
             });
+            console.info('[announces-filter] GET request:', url, 'status:', response.status);
 
             if (!response.ok) {
                 throw new Error('Response not ok');
             }
 
             const items = await response.json();
+            console.info('[announces-filter] GET items:', Array.isArray(items) ? items.length : 0);
             renderAnnounces(items || []);
         } catch (error) {
-            console.error(error);
+            console.error('[announces-filter] GET failed:', url, error);
             alert('Не удалось загрузить анонсы из БД. Проверьте, что сервер запущен.');
         }
     }

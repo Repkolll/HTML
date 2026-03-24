@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!form) return;
     const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
     const API_CREATE_GAME_URL = API_BASE + '/api/gamesapi';
+    console.info('[add-game] API URL:', API_CREATE_GAME_URL);
     function setError(id, message) {
         const el = document.getElementById('error-' + id);
         if (el) el.textContent = message || '';
@@ -89,15 +90,24 @@ document.addEventListener('DOMContentLoaded', function () {
         submitBtn.disabled = true;
         statusEl.textContent = 'Отправка...';
         try {
+            console.info('[add-game] POST request:', API_CREATE_GAME_URL, {
+                title: title.trim(),
+                genre: genre,
+                platform: platform.trim(),
+                price: Math.floor(price),
+                rating: String(Math.round(rating * 10) / 10).replace('.', ',')
+            });
             const res = await fetch(API_CREATE_GAME_URL, {
                 method: 'POST',
                 body: fd
             });
             if (!res.ok) {
                 const text = await res.text();
+                console.error('[add-game] POST failed:', res.status, text);
                 throw new Error('HTTP ' + res.status + ' ' + text);
             }
             const created = await res.json();
+            console.info('[add-game] POST success:', created);
             statusEl.textContent = 'Готово. Переходим в каталог...';
             // перейти в каталог; новая игра будет видна (каталог читает из БД)
             setTimeout(() => {

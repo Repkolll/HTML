@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadMoreBtn = document.getElementById('load-more-news');
     const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
     const API_NEWS_URL = API_BASE + '/api/newsapi';
+    console.info('[news-load-more] API URL:', API_NEWS_URL);
 
     if (!container || !loadMoreBtn) {
         return;
@@ -19,17 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
         loadMoreBtn.textContent = 'Загрузка...';
 
         try {
-            const response = await fetch(API_NEWS_URL + '?skip=3&take=3', {
+            const url = API_NEWS_URL + '?skip=3&take=3';
+            const response = await fetch(url, {
                 headers: {
                     'Accept': 'application/json'
                 }
             });
+            console.info('[news-load-more] GET request:', url, 'status:', response.status);
 
             if (!response.ok) {
                 throw new Error('Response not ok');
             }
 
             const items = await response.json();
+            console.info('[news-load-more] GET items:', Array.isArray(items) ? items.length : 0);
 
             items.forEach(item => {
                 const card = document.createElement('div');
@@ -68,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             alreadyLoaded = true;
             loadMoreBtn.textContent = 'Больше новостей нет';
         } catch (error) {
-            console.error(error);
+            console.error('[news-load-more] GET failed:', error);
             loadMoreBtn.disabled = false;
             loadMoreBtn.textContent = 'Показать ещё новости';
             alert('Не удалось загрузить дополнительные новости. Попробуйте позже.');

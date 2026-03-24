@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const API_BASE = (window.getApiBaseUrl ? window.getApiBaseUrl() : 'https://localhost:44389');
     const API_GAME_DETAILS_URL = API_BASE + '/api/gamesapi/';
+    console.info('[game-details-modal] API URL:', API_GAME_DETAILS_URL);
     const detailsCache = new Map();
     let modal = null;
     let modalContent = null;
@@ -120,10 +121,12 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        fetch(API_GAME_DETAILS_URL + numericId, {
+        const url = API_GAME_DETAILS_URL + numericId;
+        fetch(url, {
             headers: { 'Accept': 'application/json' }
         })
             .then(function (response) {
+                console.info('[game-details-modal] GET request:', url, 'status:', response.status);
                 if (!response.ok) throw new Error('Failed to load game details');
                 return response.json();
             })
@@ -144,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 showModalForGame(normalized);
             })
             .catch(function (err) {
-                console.error(err);
+                console.error('[game-details-modal] GET failed:', url, err);
                 alert('Не удалось загрузить подробную информацию об игре. Попробуйте позже.');
             });
     }
